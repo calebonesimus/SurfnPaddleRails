@@ -1,0 +1,16 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.headline {
+  color: white;
+}
+
+#posts.index .header-image {
+  background-image: image_url("space_1.jpg");
+}
+
+.image-post-link {
+  position: relative;
+  overflow: hidden;
+}

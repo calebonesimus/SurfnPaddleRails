@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SurfnPaddleRails</title>
+  <title><%= @title || "Lipsums in Space?" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id=<%= params[:controller] %> class=<%= params[:action] %>>
+  <div id="wrap">
+    <div class="jumbotron header-image">
+      <nav role="navigation" class="navbar navbar-inverse">
+        <div class="container">
 
-<%= yield %>
+          <div class="navbar-header">
+              <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <%= link_to "Lipsums in Space?", root_path, class: "navbar-brand" %>
+          </div>
 
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Home", root_path %></li>
+                  <li><%= link_to "Blog", "#" %></li>
+              </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row text-center top-margin headline">
+          <h1><%= @post.title %></h1>
+          <h5><%= @post.summary %></h5>
+        </div>
+      </div>
+    </div>
+
+
+  <%= yield %>
+
+
+    <div id="footer">
+      <nav role="navigation" class="navbar navbar-inverse">
+        <div class="container">
+          <!-- Collection of nav links, forms, and other content for toggling -->
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "one", "#" %></li>
+                  <li><%= link_to "two", "#" %></li>
+                  <li><%= link_to "three", "#" %></li>
+                  <li><%= link_to "four", "#" %></li>
+              </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
 </body>
 </html>
