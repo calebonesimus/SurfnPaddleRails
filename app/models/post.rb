@@ -81,7 +81,7 @@ class Post
   end
 
   def self.find(id)
-    all.select{|post| post.id == id}
+    all.select{|post| post.id == id.to_i }.first
   end
 
   def self.most_recent_posts

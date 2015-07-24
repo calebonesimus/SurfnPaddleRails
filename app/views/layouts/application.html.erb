@@ -5,8 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  </style>
 </head>
-<body id=<%= params[:controller] %> class=<%= params[:action] %>>
+<body id=<%= params[:controller] %> class="<%= params[:action] %> <%= "_" + params[:id] unless params[:id].nil? %>">
   <div id="wrap">
     <div class="jumbotron header-image">
       <nav role="navigation" class="navbar navbar-inverse">
@@ -42,6 +43,7 @@
 
     <%= yield %>
 
+
     <!-- Article image links -->
     <div class="container text-center top-margin">
       <div class="row">
@@ -49,7 +51,8 @@
           <% @other_posts.each do |post| %>
             <li>
               <div class="col-md-3 article-images">
-                <%= link_to image_tag(post.header_image), "#" %>
+                <%= link_to image_tag(post.header_image), post_path(:id => post.id)  %>
+                <p class="article-text"><%= post.title %></p>
               </div>
             </li>
           <% end %>
@@ -64,10 +67,9 @@
           <!-- Collection of nav links, forms, and other content for toggling -->
           <div id="navbarCollapse" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                  <li><%= link_to "one", "#" %></li>
-                  <li><%= link_to "two", "#" %></li>
-                  <li><%= link_to "three", "#" %></li>
-                  <li><%= link_to "four", "#" %></li>
+                  <li><%= link_to "Home", "#" %></li>
+                  <li><%= link_to "Blog", "#" %></li>
+                  <li><%= link_to "About", "#" %></li>
               </ul>
           </div>
         </div>
