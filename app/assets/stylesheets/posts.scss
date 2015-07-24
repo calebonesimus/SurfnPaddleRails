@@ -10,9 +10,21 @@
   background-image: image_url("space_1.jpg");
 }
 
-.image-post-link {
+.article-image-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.article-images {
   position: relative;
   overflow: hidden;
+  width: 250px;
+  height: 250px;
 }
 
 .social-nav {
