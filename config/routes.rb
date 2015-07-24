@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'about/index'
-
-  root 'posts#index'
+  get 'about' => 'about#index', as: :about
 
   get 'posts/:id' => 'posts#show', as: :post
+
+  root 'posts#index'
 
 end
