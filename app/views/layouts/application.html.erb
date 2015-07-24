@@ -26,6 +26,12 @@
                   <li><%= link_to "Home", root_path %></li>
                   <li><%= link_to "Blog", post_path(:id => @other_posts.first.id) %></li>
                   <li><%= link_to "About", about_path %></li>
+                  <%= form_tag search_path, :method => 'get', :class => "navbar-form navbar-left"  do %>
+                    <div class="form-group">
+                      <%= text_field_tag :search, params[:search], :class => "form-control" %>
+                    </div>
+                    <%= submit_tag "Search", :name => nil, :class => "btn btn-inverse"  %>
+                  <% end %>
               </ul>
           </div>
         </div>
@@ -43,24 +49,10 @@
 
 
     <%= yield %>
+  
+    <%= render partial: "article_images" %>
 
-
-    <!-- Article image links -->
-    <div class="container text-center top-margin">
-      <div class="row">
-        <ul class="article-image-list">
-          <% @other_posts.each do |post| %>
-            <li>
-              <div class="col-md-3 article-images">
-                <%= link_to image_tag(post.header_image), post_path(:id => post.id)  %>
-                <p class="article-text"><%= post.title %></p>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div> <!-- end #wrap -->
+  </div>
 
   <!-- footer -->
   <div id="footer" class="top-margin">

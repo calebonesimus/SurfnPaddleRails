@@ -10,4 +10,5 @@ class PostsController < ApplicationController
     @title = @post.title
     @other_posts = Post.most_recent_posts.reject { |post| post == @post }
   end
+
 end
