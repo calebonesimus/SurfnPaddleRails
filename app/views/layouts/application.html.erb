@@ -46,15 +46,18 @@
     <div class="container text-center top-margin">
       <div class="row">
         <ul class="article-image-list">
-          <li><div class="col-md-3 article-images"><%= link_to image_tag("space_2.jpg"), "/" %></div></li>
-          <li><div class="col-md-3 article-images"><%= link_to image_tag("space_3.jpg"), "/" %></div></li>
-          <li><div class="col-md-3 article-images"><%= link_to image_tag("space_4.jpg"), "/" %></div></li>
-          <li><div class="col-md-3 article-images"><%= link_to image_tag("space_5.jpg"), "/" %></div></li>
+          <% @other_posts.each do |post| %>
+            <li>
+              <div class="col-md-3 article-images">
+                <%= link_to image_tag(post.header_image), "#" %>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
 
-
+    <!-- Footer -->
     <div id="footer" class="top-margin">
       <nav role="navigation" class="navbar navbar-inverse">
         <div class="container">

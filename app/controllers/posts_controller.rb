@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all.last
+    @post = Post.most_recent_posts.first
     @title = @post.title
+    @other_posts = Post.most_recent_posts.reject { |post| post == @post }
   end
 
   def show
