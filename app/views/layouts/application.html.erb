@@ -3,7 +3,6 @@
 <head>
   <title><%= @title || "Lipsums in Space?" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   </style>
 </head>
@@ -56,7 +55,7 @@
               <p><%= @post.author %> Published on <%= @post.created_at.strftime("%B %d, %Y") %></p>
             </div>
           </div>
-          <%= @post.body %>
+          <%= @post.body.html_safe %>
         </div>
 
         <div class="col-md-4 text-center">
@@ -66,7 +65,7 @@
             <li><%= link_to "Facebook", "#" %></li>
             <li><%= link_to "Instagram", "#" %></li>
           </ul>
-          <%= image_tag("space_1.jpg", class: "img-responsive") %>
+          <%= image_tag(@ad, class: "img-responsive") %>
         </div>
 
       </div>
@@ -105,5 +104,6 @@
       </div>
     </nav>
   </div>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
