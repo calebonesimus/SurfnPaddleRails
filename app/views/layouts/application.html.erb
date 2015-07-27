@@ -47,8 +47,30 @@
       </div>
     </div>
 
+    <div class="container">
+      <div class="row">
 
-    <%= yield %>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              <p><%= @post.author %> Published on <%= @post.created_at.strftime("%B %d, %Y") %></p>
+            </div>
+          </div>
+          <%= @post.body %>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h3><%= @post.author %></h3>
+          <ul class="social-nav">
+            <li><%= link_to "Twitter", "#" %></li>
+            <li><%= link_to "Facebook", "#" %></li>
+            <li><%= link_to "Instagram", "#" %></li>
+          </ul>
+          <%= image_tag("space_1.jpg", class: "img-responsive") %>
+        </div>
+
+      </div>
+    </div>
 
     <!-- Article image links -->
     <div class="container text-center top-margin">
