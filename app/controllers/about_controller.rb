@@ -1,5 +1,5 @@
 class AboutController < ApplicationController
-  layout 'about'
+  layout false
 
   def index
     @posts = Post.all

@@ -4,9 +4,5 @@ class SearchController < ApplicationController
     @title = "Search"
     @other_posts = Post.most_recent_posts.reject { |post| post == @post }
     @posts = Post.all
-
-
-
-
   end
 end
