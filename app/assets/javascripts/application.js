@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
+
+
+$('p').click(function() {
+  $(this).css("color", "green")
+});
+
+
+$(".article-images").mouseenter(function() {
+  $(this).addClass("opacity").mouseleave(function() {
+    $(this).removeClass("opacity");
+  });
+});
